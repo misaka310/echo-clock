@@ -40,13 +40,18 @@
   window.addEventListener("pointerdown", tryFullscreen);
   window.addEventListener("keydown", tryFullscreen);
 
-  // The start button makes the required first tap discoverable. Any first
-  // gesture (including a tap on the button itself) starts the keep-open
-  // audio via keep.js, so the button can retire immediately.
+  // The play button makes the required first tap discoverable. Any first
+  // gesture starts the keep-open audio via keep.js, so the button retires.
+  // Hide redundantly (class + inline style) and on every gesture type:
+  // Silk's event delivery and separate HTML/JS caching can drop one path.
   const startButton = document.getElementById("start-button");
-  const retireStartButton = () => startButton.classList.add("hidden");
-  window.addEventListener("pointerdown", retireStartButton, { once: true });
-  window.addEventListener("keydown", retireStartButton, { once: true });
+  const retireStartButton = () => {
+    startButton.classList.add("hidden");
+    startButton.style.display = "none";
+  };
+  ["pointerdown", "click", "touchend", "keydown"].forEach((type) => {
+    window.addEventListener(type, retireStartButton, { capture: true });
+  });
 
   const timeEl = document.getElementById("clock");
   const dateEl = document.getElementById("date");

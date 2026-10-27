@@ -8,8 +8,8 @@
   <meta name="description" content="Echo Show 11 向けの背景と時計・日付・東京の天気表示">
   <title>Echo Show 11 | Clock</title>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
-  <link rel="stylesheet" href="./styles.css">
-  <script defer src="./app.js"></script>
+  <link rel="stylesheet" href="./styles.css?v=5">
+  <script defer src="./app.js?v=5"></script>
   <!-- Third-party code: DaGammla / Keep Silk Open (MIT), see vendor/keep-silk-open/LICENSE -->
   <script defer src="./vendor/keep-silk-open/keep.js"></script>
 </head>
@@ -26,7 +26,7 @@
         <span class="temperature" id="temperature">--°C</span>
       </p>
     </section>
-    <button id="start-button" class="start-button" type="button">タップして開始<span class="start-button-note">画面を維持します</span></button>
+    <button id="start-button" class="start-button" type="button" aria-label="再生して画面を維持する"><span class="start-button-icon" aria-hidden="true">▶</span><span class="start-button-note">再生（画面を維持）</span></button>
   </main>
 </body>
 </html>
