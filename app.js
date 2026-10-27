@@ -40,6 +40,14 @@
   window.addEventListener("pointerdown", tryFullscreen);
   window.addEventListener("keydown", tryFullscreen);
 
+  // The start button makes the required first tap discoverable. Any first
+  // gesture (including a tap on the button itself) starts the keep-open
+  // audio via keep.js, so the button can retire immediately.
+  const startButton = document.getElementById("start-button");
+  const retireStartButton = () => startButton.classList.add("hidden");
+  window.addEventListener("pointerdown", retireStartButton, { once: true });
+  window.addEventListener("keydown", retireStartButton, { once: true });
+
   const timeEl = document.getElementById("clock");
   const dateEl = document.getElementById("date");
   const weatherEl = document.getElementById("weather-line");
