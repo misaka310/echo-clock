@@ -20,6 +20,26 @@
     document.querySelector(".background").style.backgroundImage = `url("${BACKGROUNDS[bgParam]}")`;
   }
 
+  // First tap also asks the browser for fullscreen (Silk may refuse; the
+  // dashboard still works windowed). One attempt per page load is enough.
+  let fullscreenTried = false;
+  const tryFullscreen = () => {
+    if (fullscreenTried) return;
+    fullscreenTried = true;
+    const root = document.documentElement;
+    const request = root.requestFullscreen || root.webkitRequestFullscreen;
+    if (request && !document.fullscreenElement) {
+      try {
+        const result = request.call(root);
+        if (result && result.catch) result.catch(() => {});
+      } catch (error) {
+        // Fullscreen is a nicety, not a requirement.
+      }
+    }
+  };
+  window.addEventListener("pointerdown", tryFullscreen);
+  window.addEventListener("keydown", tryFullscreen);
+
   const timeEl = document.getElementById("clock");
   const dateEl = document.getElementById("date");
   const weatherEl = document.getElementById("weather-line");
