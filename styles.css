@@ -1,7 +1,7 @@
 :root {
   color-scheme: light;
   font-family: "Segoe UI", "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
-  background: #f184a4;
+  background: #7d94a8;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
 }
@@ -20,8 +20,8 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%; min-height: 100%;
   width: min(31vw, 396px);
   display: flex; flex-direction: column; align-items: flex-end;
   text-align: right;
-  color: #57182b;
-  text-shadow: 0 1px 3px rgba(255, 240, 244, .65), 0 2px 16px rgba(255, 240, 244, .5);
+  color: #ffffff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .55), 0 1px 4px rgba(0, 0, 0, .8), 0 0 2px rgba(0, 0, 0, .6);
   user-select: none; -webkit-user-select: none;
 }
 .clock {
@@ -32,7 +32,7 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%; min-height: 100%;
 .date {
   margin: 14px 0 0;
   font-size: clamp(24px, 2.5vw, 34px); font-weight: 600; line-height: 1.2;
-  color: #6d2138;
+  color: #ffffff;
 }
 .weather-line {
   margin: 18px 0 0;
@@ -43,7 +43,7 @@ html, body { margin: 0; padding: 0; width: 100%; height: 100%; min-height: 100%;
 }
 .weather-line > span { flex: none; }
 .weather-icon { font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif; line-height: 1; }
-.weather-name { color: #6d2138; }
+.weather-name { color: #ffffff; }
 @media (max-width: 640px) {
   .info-panel { right: 16px; width: 46vw; }
   .clock { font-size: clamp(44px, 13vw, 72px); }
