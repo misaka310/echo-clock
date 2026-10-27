@@ -1,0 +1,17 @@
+# Secrets, local overrides, caches, and personal wallpapers
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/
+*.py[cod]
+node_modules/
+dist/
+build/
+coverage/
+artifacts/
+assets/private/
