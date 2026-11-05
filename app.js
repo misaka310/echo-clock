@@ -16,7 +16,8 @@
     gradient: "./assets/bg-4.jpg"
   };
   const bgParam = new URLSearchParams(location.search).get("bg");
-  if (bgParam && BACKGROUNDS[bgParam]) {
+  // Own keys only: "?bg=constructor" etc. must fall back to the default image.
+  if (bgParam && Object.prototype.hasOwnProperty.call(BACKGROUNDS, bgParam)) {
     document.querySelector(".background").style.backgroundImage = `url("${BACKGROUNDS[bgParam]}")`;
   }
 
