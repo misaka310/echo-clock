@@ -42,6 +42,11 @@ class DashboardTests(unittest.TestCase):
         self.assertIn('DaGammla', self.read("vendor/keep-silk-open/LICENSE"))
         self.assertGreater((ROOT / "vendor/keep-silk-open/media.mp3").stat().st_size, 50)
 
+    def test_background_param_ignores_inherited_keys(self):
+        js = self.read("app.js")
+        self.assertIn("Object.prototype.hasOwnProperty.call(BACKGROUNDS, bgParam)", js)
+        self.assertNotIn("BACKGROUNDS[bgParam]) {", js)
+
     def test_no_external_script_or_secrets(self):
         html = self.read("index.html")
         self.assertNotIn('<script src="https:', html)
